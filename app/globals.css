@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+/*
+  Theme tokens — single source of truth for colours, fonts, etc.
+  Tailwind v4 reads these and generates utility classes automatically.
+  Change a value here and the whole site updates.
+*/
+@theme {
+  /* Brand */
+  --color-coral: #D85A30;
+  --color-coral-dark: #B0431F;
+  --color-coral-light: #F5C4B3;
+
+  /* Neutrals (override Tailwind defaults for a warmer palette) */
+  --color-ink: #111111;
+  --color-ink-muted: #4A4A48;
+  --color-ink-soft: #6B6B66;
+  --color-paper: #FFFFFF;
+  --color-paper-warm: #FBF9F5;
+
+  /* Fonts — wired up in app/layout.tsx via next/font */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Serif H1s — the editorial flourish from Style C */
+.heading-serif {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* Subtle selection colour matching the brand */
+::selection {
+  background: var(--color-coral-light);
+  color: var(--color-ink);
+}
