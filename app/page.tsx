@@ -91,7 +91,7 @@ export default function Home() {
           <span>&copy; {new Date().getFullYear()} Pouria Ebrahimzadeh</span>
           <div className="flex items-center gap-5">
             <a
-              href="https://www.linkedin.com/in/pouria"
+              href="https://www.linkedin.com/in/pouria-ebram/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[var(--color-coral)] transition-colors"
