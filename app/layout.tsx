@@ -18,12 +18,12 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Pouria Ebrahimzadeh — Lead Data Scientist & AI Product Builder",
+  title: "Pouria Ebram — Lead Data Scientist & AI Product Builder",
   description:
-    "Lead Data Scientist at I-MED Radiology, building AI products for clinical use. Pivoting toward AI product leadership.",
+    "Lead Data Scientist at I-MED Radiology. A decade across telecom and healthcare. Moving toward AI product leadership.",
   // Open Graph (link previews when shared on LinkedIn, Slack, etc.)
   openGraph: {
-    title: "Pouria Ebrahimzadeh",
+    title: "Pouria Ebram",
     description: "Lead Data Scientist & AI Product Builder.",
     type: "website",
   },
