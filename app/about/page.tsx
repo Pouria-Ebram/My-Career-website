@@ -258,7 +258,11 @@ export default function About() {
               org="I-MED"
               title="GenAI for operational efficiency"
               blurb="Leading GenAI initiatives across Australia's largest medical imaging network — turning frontier models into tools the business actually uses."
-              href="/work/i-med-agent"
+              href={
+                process.env.NEXT_PUBLIC_DRAFT_CASE_STUDIES === "true"
+                  ? "/work/i-med-agent"
+                  : undefined
+              }
             />
             <WorkCard
               org="Telstra"

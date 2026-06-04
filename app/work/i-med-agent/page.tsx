@@ -12,6 +12,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 
@@ -24,6 +25,14 @@ function Pill({ children }: { children: React.ReactNode }) {
 }
 
 export default function IMedAgent() {
+  // Draft gate — page only renders when the feature flag is on.
+  // Locally: .env.local sets NEXT_PUBLIC_DRAFT_CASE_STUDIES=true → visible.
+  // On Vercel: variable not set → notFound() returns a real 404.
+  // To publish for good: delete these three lines.
+  if (process.env.NEXT_PUBLIC_DRAFT_CASE_STUDIES !== "true") {
+    notFound();
+  }
+
   return (
     <main className="min-h-screen flex flex-col">
       <Nav />
