@@ -14,6 +14,7 @@
   (e.g. /about#contact).
 */
 
+import Link from "next/link";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 
@@ -31,20 +32,23 @@ function Capability({ title, body }: { title: string; body: string }) {
   );
 }
 
-// Reusable work-card placeholder for selected work.
+// Reusable work card. If `href` is supplied, the card is a clickable link
+// (case study is live); otherwise it's a static placeholder.
 function WorkCard({
   title,
   org,
   blurb,
+  href,
   status = "Case study coming soon",
 }: {
   title: string;
   org: string;
   blurb: string;
+  href?: string;
   status?: string;
 }) {
-  return (
-    <div className="border border-black/5 rounded-xl p-5 bg-[var(--color-paper)] hover:border-[var(--color-coral)]/40 transition-colors">
+  const inner = (
+    <>
       <div className="flex items-baseline justify-between mb-2 gap-3">
         <h3 className="text-base font-medium text-[var(--color-ink)]">
           {title}
@@ -56,9 +60,23 @@ function WorkCard({
       <p className="text-sm text-[var(--color-ink-muted)] leading-relaxed mb-3">
         {blurb}
       </p>
-      <p className="text-xs text-[var(--color-coral)] font-medium">{status}</p>
-    </div>
+      <p className="text-xs text-[var(--color-coral)] font-medium">
+        {href ? <>Read the case study &rarr;</> : status}
+      </p>
+    </>
   );
+
+  const baseClasses =
+    "block border border-black/5 rounded-xl p-5 bg-[var(--color-paper)] hover:border-[var(--color-coral)]/40 transition-colors";
+
+  if (href) {
+    return (
+      <Link href={href} className={baseClasses}>
+        {inner}
+      </Link>
+    );
+  }
+  return <div className={baseClasses}>{inner}</div>;
 }
 
 export default function About() {
@@ -136,14 +154,11 @@ export default function About() {
               &mdash; first into sports media analytics (AFL, NRL, AFLW
               streaming), then into customer base management, and eventually
               into the Lead role on Telstra&rsquo;s customer experience
-              program. Along the way I helped build churn models that drove{" "}
-              <span className="text-[var(--color-ink)]">
-                $4.2M in annual savings
-              </span>
-              , pioneered the use of LLM-based topic modelling for customer
-              verbatim analysis, and led the ML work behind the company&rsquo;s
-              CIQ initiative &mdash; adopted enterprise-wide across 15 retail
-              locations.
+              program. Along the way I led production churn modelling that
+              delivered material recurring savings, applied LLM-based topic
+              modelling to customer verbatim analysis, and led the ML work
+              behind the company&rsquo;s CIQ initiative &mdash; adopted
+              enterprise-wide across 15 retail locations.
             </p>
             <p>
               Then I made the biggest leap yet: industry change, role step-up,
@@ -217,7 +232,7 @@ export default function About() {
             />
             <Capability
               title="Outcomes that hit the P&L"
-              body="$4.2M annual savings via production churn models. Director's Accolade for cross-team integration. Enterprise-wide CIQ rollout informing CX strategy."
+              body="Material recurring savings via production churn models. Director's Accolade for cross-team integration. Enterprise-wide CIQ rollout informing CX strategy."
             />
             <Capability
               title="Cross-functional product thinking"
@@ -243,6 +258,7 @@ export default function About() {
               org="I-MED"
               title="GenAI for operational efficiency"
               blurb="Leading GenAI initiatives across Australia's largest medical imaging network — turning frontier models into tools the business actually uses."
+              href="/work/i-med-agent"
             />
             <WorkCard
               org="Telstra"
@@ -252,7 +268,7 @@ export default function About() {
             <WorkCard
               org="Telstra"
               title="Churn prediction at scale"
-              blurb="Multiple production ML models delivering $4.2M in annual savings via targeted retention campaigns and uncovering key churn drivers."
+              blurb="Multiple production ML churn models powering targeted retention campaigns, uncovering key drivers, and delivering material recurring impact."
             />
             <WorkCard
               org="Telstra"
