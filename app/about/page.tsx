@@ -253,7 +253,7 @@ export default function About() {
           <p className="text-sm text-[var(--color-ink-soft)] mb-6">
             Full case studies coming in Phase 3 of this site.
           </p>
-          <div className="grid sm:grid-cols-2 gap-3">
+          <div className="grid sm:grid-cols-3 gap-3">
             <WorkCard
               org="I-MED"
               title="GenAI for operational efficiency"
@@ -268,16 +268,13 @@ export default function About() {
               org="Telstra"
               title="CIQ — Customer-IQ"
               blurb="Led ML propensity models adopted enterprise-wide across 15 store locations, informing strategic decisions on network investment and CX."
+              href="/work/telstra-ciq"
             />
             <WorkCard
               org="Telstra"
               title="Churn prediction at scale"
-              blurb="Multiple production ML churn models powering targeted retention campaigns, uncovering key drivers, and delivering material recurring impact."
-            />
-            <WorkCard
-              org="Telstra"
-              title="LLM topic modelling for verbatims"
-              blurb="Pioneered novel application of LLM-based topic modelling on customer verbatims — improved model precision via segment isolation."
+              blurb="Daily-refreshed post-assurance churn propensity model for NBN — 5× top-decile lift, used across marketing, assurance ops, and fixed-broadband product teams."
+              href="/work/telstra-churn"
             />
           </div>
         </section>
